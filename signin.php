@@ -1,45 +1,61 @@
 <?php
-
+require('connect.php');
+session_start();
 include 'includes/header.php';
 
 
-     include ("connect.php");
     
-     $fname = $_POST['fname'];
-     $lname = $_POST['lname'];
-     $uname = $_POST['uname'];
-     $email = $_POST['email'];
-     $number = $_POST['number'];
-     $password = $_POST['password'];
+    error_reporting(0);
+                      
+    // If form submitted, insert values into the database.
+    if (isset($_POST['login'])){
+    // removes backslashes
+        $username1 = stripslashes($_REQUEST['uname']);
         
-     $sql_u = "SELECT * FROM users WHERE uname='$uname'";
-     $sql_e = "SELECT * FROM users WHERE user_email='$email'";
-     $res_u = mysqli_query($conn, $sql_u);
-     $res_e = mysqli_query($conn, $sql_e);
-     if (mysqli_num_rows($res_u) > 0) {
-        $name_error = "Sorry... username already taken";
-        echo "<script type='text/javascript'> onload = function(){alert('$name_error');
-        }</script>";
-    }else if(mysqli_num_rows($res_e) > 0){
-        $email_error = "Sorry... email already taken"; 	
-        echo "<script type='text/javascript'> onload = function(){alert('$email_error');
-            }</script>";  	
-    }else{
-            $query="INSERT INTO users (first_name,last_name,uname,user_email,user_phone_number,upassword) VALUES ('$fname','$lname','$uname','$email','$number','".md5($password)."')";
-           $data= mysqli_query($conn,$query);
-           if($data){ 
-
-            echo "<script type=\"text/javascript\">
-                 alert(\"New member added successfully.\");
-                 window.location = \"signin.php\"
-             </script>";
-            }
+        //escapes special characters in a string
+        $username1 = mysqli_real_escape_string($conn,$username1);
+        
+        $password1 = stripslashes($_REQUEST['upassword']);
+        $password1 = mysqli_real_escape_string($conn,$password1);
+         //Checking is user existing in the database or not
+        $query2 = "SELECT * FROM `users` WHERE uname='$username1'
+        and upassword='".md5($password1)."' ";
+        $result = mysqli_query($conn,$query2) ;
+        $rows = mysqli_num_rows($result);
+        if($rows==1){
+            $_SESSION['username'] = $username1;
+            $_SESSION['email'] = $email1;
+            
+            // Redirect user to index.php
+            header("Location:home.php");
+        }else{
+            $name_error1 =  "Username or Password is incorrect";
+            echo "<script type='text/javascript'> onload = function(){alert('$name_error1');}</script>";
         }
-
-
-
+    }
 ?>
-
+<?php
+// session_start();
+// if(isset($_POST['login']))
+// {
+//     extract($_POST);
+//     include 'database.php';
+//     $sql=mysqli_query($conn,"SELECT * FROM users where Email='$email' and Password='md5($pass)'");
+//     $row  = mysqli_fetch_array($sql);
+//     if(is_array($row))
+//     {
+//         $_SESSION["ID"] = $row['ID'];
+//         $_SESSION["Email"]=$row['Email'];
+//         $_SESSION["First_Name"]=$row['First_Name'];
+//         $_SESSION["Last_Name"]=$row['Last_Name']; 
+//         header("Location: home.php"); 
+//     }
+//     else
+//     {
+//         echo "Invalid Email ID/Password";
+//     }
+// }
+?>
 
         <!--====== End - Main Header ======-->
 
@@ -58,12 +74,10 @@ include 'includes/header.php';
                                 <ul class="breadcrumb__list">
                                     <li class="has-separator">
 
-                                        <a href="index.html">Home</a>
-                                    </li>
+                                        <a href="index.html">Home</a></li>
                                     <li class="is-marked">
 
-                                        <a href="signup.html">Signup</a>
-                                    </li>
+                                        <a href="signin.html">Signin</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -82,7 +96,7 @@ include 'includes/header.php';
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="section__text-wrap">
-                                    <h1 class="section__heading u-c-secondary">CREATE AN ACCOUNT</h1>
+                                    <h1 class="section__heading u-c-secondary">ALREADY REGISTERED?</h1>
                                 </div>
                             </div>
                         </div>
@@ -98,74 +112,61 @@ include 'includes/header.php';
                             <div class="col-lg-6 col-md-8 u-s-m-b-30">
                                 <div class="l-f-o">
                                     <div class="l-f-o__pad-box">
-                                        <h1 class="gl-h1">PERSONAL INFORMATION</h1>
+                                        <h1 class="gl-h1">I'M NEW CUSTOMER</h1>
+
+                                        <span class="gl-text u-s-m-b-30">By creating an account with our store, you will be able to move through the checkout process faster, store shipping addresses, view and track your orders in your account and more.</span>
+                                        <div class="u-s-m-b-15">
+
+                                            <a class="l-f-o__create-link btn--e-transparent-brand-b-2" href="signup.html">CREATE AN ACCOUNT</a></div>
+                                        <h1 class="gl-h1">SIGNIN</h1>
+
+                                        <span class="gl-text u-s-m-b-30">If you have an account with us, please log in.</span>
                                         <form class="l-f-o__form" action="" method="POST">
                                             <div class="gl-s-api">
                                                 <div class="u-s-m-b-15">
 
                                                     <button class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i class="fab fa-facebook-f"></i>
 
-                                                        <span>Signup with Facebook</span></button>
-                                                </div>
-                                                <div class="u-s-m-b-30">
+                                                        <span>Signin with Facebook</span></button></div>
+                                                <div class="u-s-m-b-15">
 
                                                     <button class="gl-s-api__btn gl-s-api__btn--gplus" type="button"><i class="fab fa-google"></i>
 
-                                                        <span>Signup with Google</span></button>
+                                                        <span>Signin with Google</span></button></div>
+                                            </div>
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="login-email">E-MAIL *</label>
+
+                                                <input class="input-text input-text--primary-style" type="text" id="login-email" placeholder="Enter E-mail" name="uname"></div>
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="login-password">PASSWORD *</label>
+
+                                                <input class="input-text input-text--primary-style" type="password" id="login-password" placeholder="Enter Password" name="upassword"></div>
+                                            <div class="gl-inline">
+                                                <div class="u-s-m-b-30">
+
+                                                    <!-- <button class="btn btn--e-transparent-brand-b-2" type="submit" name="login" value="Login" >LOGIN</button> -->
+                                                    <input type="submit" value="login" class="btn btn--e-transparent-brand-b-2">
+
                                                 </div>
-                                            </div>
-                                            <label class="gl-label">
-                                                <?php 
-                                                $name_error = "Sorry... username already taken";
+                                                <div class="u-s-m-b-30">
 
-                                                 $email_error = "Sorry... email already taken"; 	
-
-                                                $success = "Success"; 
-                                                ?>
-                                            </label>
-                                            <div class="u-s-m-b-30">
-
-                                                <label class="gl-label" for="reg-fname">FIRST NAME *</label>
-
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-fname" placeholder="First Name" name="fname">
+                                                    <a class="gl-link" href="lost-password.html">Lost Your Password?</a></div>
                                             </div>
                                             <div class="u-s-m-b-30">
 
-                                                <label class="gl-label" for="reg-lname">LAST NAME *</label>
+                                                <!--====== Check Box ======-->
+                                                <div class="check-box">
 
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-lname" placeholder="Last Name" name="lname">
+                                                    <input type="checkbox" id="remember-me">
+                                                    <div class="check-box__state check-box__state--primary">
+
+                                                        <label class="check-box__label" for="remember-me">Remember Me</label></div>
+                                                </div>
+                                                <!--====== End - Check Box ======-->
                                             </div>
-                                            <div class="u-s-m-b-30">
-
-                                                <label class="gl-label" for="reg-uname">Username</label>
-
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-uname" placeholder="Username" name="uname">
-                                            </div>
-                                            <div class="u-s-m-b-30">
-
-                                                <label class="gl-label" for="reg-email">E-MAIL *</label>
-
-                                                <input class="input-text input-text--primary-style" type="text" id="reg-email" placeholder="Enter E-mail" name="email">
-                                            </div>
-                                            <div class="u-s-m-b-30">
-
-                                                <label class="gl-label" for="phone-number">Phone Number *</label>
-
-
-                                                <input class="input-text input-text--primary-style"  type="tel" pattern="[0-9]{10}" id="phone-number" placeholder="Enter Phone Number" name="number">
-                                            </div>
-                                            <div class="u-s-m-b-30">
-
-                                                <label class="gl-label" for="reg-password">PASSWORD *</label>
-
-                                                <input class="input-text input-text--primary-style" type="password" id="reg-password" placeholder="Enter Password" name="password">
-                                            </div>
-                                            <div class="u-s-m-b-15">
-
-                                                <button class="btn btn--e-transparent-brand-b-2" type="submit" name="create">CREATE</button>
-                                            </div>
-
-                                            <a class="gl-link" href="#">Return to Store</a>
                                         </form>
                                     </div>
                                 </div>
@@ -191,38 +192,30 @@ include 'includes/header.php';
                                 <span class="outer-footer__content-title">Contact Us</span>
                                 <div class="outer-footer__text-wrap"><i class="fas fa-home"></i>
 
-                                    <span>4247 Ashford Drive Virginia VA-20006 USA</span>
-                                </div>
+                                    <span>4247 Ashford Drive Virginia VA-20006 USA</span></div>
                                 <div class="outer-footer__text-wrap"><i class="fas fa-phone-volume"></i>
 
-                                    <span>(+0) 900 901 904</span>
-                                </div>
+                                    <span>(+0) 900 901 904</span></div>
                                 <div class="outer-footer__text-wrap"><i class="far fa-envelope"></i>
 
-                                    <span>contact@domain.com</span>
-                                </div>
+                                    <span>contact@domain.com</span></div>
                                 <div class="outer-footer__social">
                                     <ul>
                                         <li>
 
-                                            <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
+                                            <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
                                         <li>
 
-                                            <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
+                                            <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
                                         <li>
 
-                                            <a class="s-youtube--color-hover" href="#"><i class="fab fa-youtube"></i></a>
-                                        </li>
+                                            <a class="s-youtube--color-hover" href="#"><i class="fab fa-youtube"></i></a></li>
                                         <li>
 
-                                            <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
+                                            <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a></li>
                                         <li>
 
-                                            <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a>
-                                        </li>
+                                            <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -237,24 +230,19 @@ include 'includes/header.php';
                                             <ul>
                                                 <li>
 
-                                                    <a href="cart.html">Cart</a>
-                                                </li>
+                                                    <a href="cart.html">Cart</a></li>
                                                 <li>
 
-                                                    <a href="dashboard.html">Account</a>
-                                                </li>
+                                                    <a href="dashboard.html">Account</a></li>
                                                 <li>
 
-                                                    <a href="shop-side-version-2.html">Manufacturer</a>
-                                                </li>
+                                                    <a href="shop-side-version-2.html">Manufacturer</a></li>
                                                 <li>
 
-                                                    <a href="dash-payment-option.html">Finance</a>
-                                                </li>
+                                                    <a href="dash-payment-option.html">Finance</a></li>
                                                 <li>
 
-                                                    <a href="shop-side-version-2.html">Shop</a>
-                                                </li>
+                                                    <a href="shop-side-version-2.html">Shop</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -267,24 +255,19 @@ include 'includes/header.php';
                                             <ul>
                                                 <li>
 
-                                                    <a href="about.html">About us</a>
-                                                </li>
+                                                    <a href="about.html">About us</a></li>
                                                 <li>
 
-                                                    <a href="contact.html">Contact Us</a>
-                                                </li>
+                                                    <a href="contact.html">Contact Us</a></li>
                                                 <li>
 
-                                                    <a href="index.html">Sitemap</a>
-                                                </li>
+                                                    <a href="index.html">Sitemap</a></li>
                                                 <li>
 
-                                                    <a href="dash-my-order.html">Delivery</a>
-                                                </li>
+                                                    <a href="dash-my-order.html">Delivery</a></li>
                                                 <li>
 
-                                                    <a href="shop-side-version-2.html">Store</a>
-                                                </li>
+                                                    <a href="shop-side-version-2.html">Store</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -302,16 +285,14 @@ include 'includes/header.php';
                                             <input type="radio" id="male" name="gender">
                                             <div class="radio-box__state radio-box__state--primary">
 
-                                                <label class="radio-box__label" for="male">Male</label>
-                                            </div>
+                                                <label class="radio-box__label" for="male">Male</label></div>
                                         </div>
                                         <div class="radio-box newsletter__radio">
 
                                             <input type="radio" id="female" name="gender">
                                             <div class="radio-box__state radio-box__state--primary">
 
-                                                <label class="radio-box__label" for="female">Female</label>
-                                            </div>
+                                                <label class="radio-box__label" for="female">Female</label></div>
                                         </div>
                                     </div>
                                     <div class="newsletter__group">
@@ -320,8 +301,7 @@ include 'includes/header.php';
 
                                         <input class="input-text input-text--only-white" type="text" id="newsletter" placeholder="Enter your Email">
 
-                                        <button class="btn btn--e-brand newsletter__btn" type="submit">SUBSCRIBE</button>
-                                    </div>
+                                        <button class="btn btn--e-brand newsletter__btn" type="submit">SUBSCRIBE</button></div>
 
                                     <span class="newsletter__text">Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.</span>
                                 </form>
@@ -341,8 +321,7 @@ include 'includes/header.php';
 
                                     <a href="index.html">Reshop</a>
 
-                                    <span>All Right Reserved</span>
-                                </div>
+                                    <span>All Right Reserved</span></div>
                                 <div class="lower-footer__payment">
                                     <ul>
                                         <li><i class="fab fa-cc-stripe"></i></li>
@@ -401,5 +380,4 @@ include 'includes/header.php';
         </div>
     </noscript>
 </body>
-
 </html>
