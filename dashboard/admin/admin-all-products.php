@@ -474,7 +474,7 @@
                         </div>
                     </li>
                                     <li class="ic-prod">
-                        <a href="#" class="">Products</a>
+                        <a href="#" class="mact">Products</a>
                         <div>
                             <ol>
                                 <li>
@@ -621,7 +621,7 @@
                         </div>
                     </li>
                                     <li class="ic-hom">
-                        <a href="#" class="mact">Home Page</a>
+                        <a href="#" class="">Home Page</a>
                         <div>
                             <ol>
                                 <li>
@@ -802,127 +802,309 @@
 <!-- START -->
 <section>
     <div class="ad-com">
-        <div class="ad-dash adda-oly leftpadd">
-
-            <!--            User Welcome Div starts -->
-
-            <div class="ad-dash-s1">
-                <div class="cd-cen-intr-inn cd-cen-intr-inn2">
-                    <h2><b>Home page</b> template change</h2>
-                    <p>Now you can easy to change your home page view and attract more customers and google ranking.</p>
-                </div>
-            </div>
-
-            <!--User Welcome Div ends -->
-                        
-            <div class="biz-updates">
-                <div class="templ-acti">
-                    <form name="home_page_template" id="home_page_template" method="post" action="update_home_page_template.html"
-                          class="cre-dup-form cre-dup-form-show">
-                        <ul>
-                            <li>
-                                <select id="admin_home_page" name="admin_home_page">
-                                                                            <option selected value="1">Home page variation - 1                                        </option>
-                                                                                <option  value="2">Home page variation - 2                                        </option>
-                                                                                <option  value="3">Home page variation - 3                                        </option>
-                                                                                <option  value="4">Home page variation - 4                                        </option>
-                                                                                <option  value="5">Home page variation - 5                                        </option>
-                                                                                <option  value="6">Home page variation - 6                                        </option>
-                                                                                <option  value="7">Home page variation - 7                                        </option>
-                                                                                <option  value="8">Home page variation - 8                                        </option>
-                                                                                <option  value="9">Home page variation - 9                                        </option>
-                                                                        </select>
-                                <button type="submit" name="home_page_template_submit" class="btn btn-primary">Submit
-                                </button>
-                            </li>
-                        </ul>
-                    </form>
-                </div>
-                <div class="ud-notes">
-                    <p><b>Advantages for change home page template:</b></p>
-                    <ul>
-                        <li>AB testing</li>
-                        <li>Page speed improve</li>
-                        <li>Attract more customers</li>
-                    </ul>
-                </div>
-                <div class="home-pre-scr">
-                    <h2>Home page preview screens</h2>
-                    <ul>
-                                                    <li>
-                                <div>
-                                    <img src="images/home-page-pre-1.PNG">
-                                    <h5>Home page 1</h5>
-                                    <a href="http://localhost/directory/bizbook/index.html?preview=preview&q=6RVUN4UZZI30O6NC8AT4X3BR1GX3E6S4PPLDNTXAFBQXCPEGZIP3UXDVYKPVX3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU&type=1&query=X3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU" target="_blank"></a>
-                                </div>
-                            </li>
-                                                        <li>
-                                <div>
-                                    <img src="images/home-page-pre-2.PNG">
-                                    <h5>Home page 2</h5>
-                                    <a href="http://localhost/directory/bizbook/index.html?preview=preview&q=6RVUN4UZZI30O6NC8AT4X3BR1GX3E6S4PPLDNTXAFBQXCPEGZIP3UXDVYKPVX3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU&type=2&query=X3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU" target="_blank"></a>
-                                </div>
-                            </li>
-                                                        <li>
-                                <div>
-                                    <img src="images/home-page-pre-3.PNG">
-                                    <h5>Home page 3</h5>
-                                    <a href="http://localhost/directory/bizbook/index.html?preview=preview&q=6RVUN4UZZI30O6NC8AT4X3BR1GX3E6S4PPLDNTXAFBQXCPEGZIP3UXDVYKPVX3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU&type=3&query=X3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU" target="_blank"></a>
-                                </div>
-                            </li>
-                                                        <li>
-                                <div>
-                                    <img src="images/home-page-pre-4.PNG">
-                                    <h5>Home page 4</h5>
-                                    <a href="http://localhost/directory/bizbook/index.html?preview=preview&q=6RVUN4UZZI30O6NC8AT4X3BR1GX3E6S4PPLDNTXAFBQXCPEGZIP3UXDVYKPVX3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU&type=4&query=X3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU" target="_blank"></a>
-                                </div>
-                            </li>
-                                                        <li>
-                                <div>
-                                    <img src="images/home-page-pre-5.PNG">
-                                    <h5>Home page 5</h5>
-                                    <a href="http://localhost/directory/bizbook/index.html?preview=preview&q=6RVUN4UZZI30O6NC8AT4X3BR1GX3E6S4PPLDNTXAFBQXCPEGZIP3UXDVYKPVX3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU&type=5&query=X3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU" target="_blank"></a>
-                                </div>
-                            </li>
-                                                        <li>
-                                <div>
-                                    <img src="images/home-page-pre-6.PNG">
-                                    <h5>Home page 6</h5>
-                                    <a href="http://localhost/directory/bizbook/index.html?preview=preview&q=6RVUN4UZZI30O6NC8AT4X3BR1GX3E6S4PPLDNTXAFBQXCPEGZIP3UXDVYKPVX3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU&type=6&query=X3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU" target="_blank"></a>
-                                </div>
-                            </li>
-                                                        <li>
-                                <div>
-                                    <img src="images/home-page-pre-7.PNG">
-                                    <h5>Home page 7</h5>
-                                    <a href="http://localhost/directory/bizbook/index.html?preview=preview&q=6RVUN4UZZI30O6NC8AT4X3BR1GX3E6S4PPLDNTXAFBQXCPEGZIP3UXDVYKPVX3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU&type=7&query=X3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU" target="_blank"></a>
-                                </div>
-                            </li>
-                                                        <li>
-                                <div>
-                                    <img src="images/home-page-pre-8.PNG">
-                                    <h5>Home page 8</h5>
-                                    <a href="http://localhost/directory/bizbook/index.html?preview=preview&q=6RVUN4UZZI30O6NC8AT4X3BR1GX3E6S4PPLDNTXAFBQXCPEGZIP3UXDVYKPVX3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU&type=8&query=X3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU" target="_blank"></a>
-                                </div>
-                            </li>
-                                                        <li>
-                                <div>
-                                    <img src="images/home-page-pre-9.PNG">
-                                    <h5>Home page 9</h5>
-                                    <a href="http://localhost/directory/bizbook/index.html?preview=preview&q=6RVUN4UZZI30O6NC8AT4X3BR1GX3E6S4PPLDNTXAFBQXCPEGZIP3UXDVYKPVX3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU&type=9&query=X3BR1GX3E6S4PPLDNTXA6RVUN4UZZI30O6NC8AT40BQRIEKF67NSOE0PEPFU" target="_blank"></a>
-                                </div>
-                            </li>
+        <div class="ad-dash leftpadd">
+            <div class="ud-cen">
+                <div class="log-bor">&nbsp;</div>
+                <span class="udb-inst">All Products</span>
+                <div class="ud-cen-s2">
+                    <h2>Product details</h2>
+                                        <a href="admin-add-new-product.html" class="db-tit-btn">Add new product</a>
+                    <table class="responsive-table bordered">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Product Name</th>
+<!--                            <th>product Date</th>-->
+                            <th>Created by</th>
+                            <th>Views</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>Preview</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                                    <tr>
+                                <td>1</td>
+                                <td><img
+                                        src="../images/products/3466audi_png1737.png">Audi q3 <span>26, Mar 2021</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/rn53-themes" class="db-list-ststus" target="_blank">Rn53 Themes</a></td>
+                                <td><span class="db-list-rat">9</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD036" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD036" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD036" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>2</td>
+                                <td><img
+                                        src="../images/products/20234fp-263d-royal-protton-alpha-steel_interior.png">WHIRLPOOL FRIDGE <span>12, Mar 2021</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/rn53-themes" class="db-list-ststus" target="_blank">Rn53 Themes</a></td>
+                                <td><span class="db-list-rat">12</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD034" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD034" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD034" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>3</td>
+                                <td><img
+                                        src="../images/products/6743281s+9npa5ol._ac_ul320_.jpg">DELL <span>12, Mar 2021</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/rn53-themes" class="db-list-ststus" target="_blank">Rn53 Themes</a></td>
+                                <td><span class="db-list-rat">9</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD033" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD033" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD033" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>4</td>
+                                <td><img
+                                        src="../images/products/6009download.jfif">samsung m31 <span>12, Mar 2021</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/rn53-themes" class="db-list-ststus" target="_blank">Rn53 Themes</a></td>
+                                <td><span class="db-list-rat">11</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD032" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD032" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD032" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>5</td>
+                                <td><img
+                                        src="../images/products/48373ac-hot-n-cold-final.png">LG AC <span>11, Mar 2021</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/rn53-themes" class="db-list-ststus" target="_blank">Rn53 Themes</a></td>
+                                <td><span class="db-list-rat">8</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD031" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD031" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD031" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>6</td>
+                                <td><img
+                                        src="../images/products/763861bdef4927c04d3674fa22e88df97ca754db8f83e.jpeg">lenova yoga 510 <span>21, Feb 2021</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/rn53-themes" class="db-list-ststus" target="_blank">Rn53 Themes</a></td>
+                                <td><span class="db-list-rat">9</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD030" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD030" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD030" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>7</td>
+                                <td><img
+                                        src="../images/products/64319100-cash.png">mango cacke <span>02, Sep 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/leland-k-cotter" class="db-list-ststus" target="_blank">Leland K Cotter</a></td>
+                                <td><span class="db-list-rat">8</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD029" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD029" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD029" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>8</td>
+                                <td><img
+                                        src="../images/products/2561img_20200705_151308_resized_20200705_081710009.jpg">fdsfsd <span>09, Jul 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/leland-k-cotter" class="db-list-ststus" target="_blank">Leland K Cotter</a></td>
+                                <td><span class="db-list-rat">8</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD025" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD025" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD025" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>9</td>
+                                <td><img
+                                        src="../images/products/56156mecanics---copie.jpg">LÃ©gume <span>13, Jun 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/clic" class="db-list-ststus" target="_blank">clic</a></td>
+                                <td><span class="db-list-rat">9</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD024" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD024" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD024" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>10</td>
+                                <td><img
+                                        src="../images/products/88947usb-159770_1280.png">pendrive <span>29, May 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/leland-k-cotter" class="db-list-ststus" target="_blank">Leland K Cotter</a></td>
+                                <td><span class="db-list-rat">10</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD023" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD023" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD023" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>11</td>
+                                <td><img
+                                        src="../images/products/7351pig-2103502.jpg">zapatos <span>28, May 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/leland-k-cotter" class="db-list-ststus" target="_blank">Leland K Cotter</a></td>
+                                <td><span class="db-list-rat">7</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD022" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD022" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD022" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>12</td>
+                                <td><img
+                                        src="../images/products/73462payment-4334491_1920.jpg">Laptop XS <span>07, May 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/leland-k-cotter" class="db-list-ststus" target="_blank">Leland K Cotter</a></td>
+                                <td><span class="db-list-rat">10</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD020" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD020" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD020" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>13</td>
+                                <td><img
+                                        src="../images/products/74749bizpro.jpeg">Engineered Shelving Unit <span>27, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/rn53-themes" class="db-list-ststus" target="_blank">Rn53 Themes</a></td>
+                                <td><span class="db-list-rat">6</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD018" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD018" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD018" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>14</td>
+                                <td><img
+                                        src="../images/products/17557top-10-ecommerce-websites.png">ND <span>12, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/leland-k-cotter" class="db-list-ststus" target="_blank">Leland K Cotter</a></td>
+                                <td><span class="db-list-rat">7</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD015" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD015" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD015" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>15</td>
+                                <td><img
+                                        src="../images/products/9742271vrkhjj9hl._ul1500_.jpg">Fastrack Reflex 2.0 - Smart Watches <span>11, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/leland-k-cotter" class="db-list-ststus" target="_blank">Leland K Cotter</a></td>
+                                <td><span class="db-list-rat">0</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD014" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD014" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD014" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>16</td>
+                                <td><img
+                                        src="../images/products/14624htb1pzoyrvxxxxbfxpxxq6xxfxxxy.jpg">Professional DSLR Battery Grip Holder Kit <span>11, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/leland-k-cotter" class="db-list-ststus" target="_blank">Leland K Cotter</a></td>
+                                <td><span class="db-list-rat">6</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD013" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD013" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD013" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>17</td>
+                                <td><img
+                                        src="../images/products/101211-ps4-slim-sony-yes-dualshock-4-original-imafmakaeu7xvz6a.jpeg">8 x 4 Metal Trailer - Exc Tyres <span>11, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/rn53-themes" class="db-list-ststus" target="_blank">Rn53 Themes</a></td>
+                                <td><span class="db-list-rat">1</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD012" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD012" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD012" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>18</td>
+                                <td><img
+                                        src="../images/products/438131.jpg">Tour and Travel Booking html Template <span>10, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/" class="db-list-ststus" target="_blank"></a></td>
+                                <td><span class="db-list-rat">6</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD010" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD010" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD010" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>19</td>
+                                <td><img
+                                        src="../images/products/40766intro_cream_of_crop.jpg">Yake vegitables shops - online orders <span>10, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/claude-d-dial" class="db-list-ststus" target="_blank">Claude D Dial</a></td>
+                                <td><span class="db-list-rat">0</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD009" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD009" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD009" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>20</td>
+                                <td><img
+                                        src="../images/products/33804awesomebooks-new3.jpg">Weight loss digital products <span>10, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/claude-d-dial" class="db-list-ststus" target="_blank">Claude D Dial</a></td>
+                                <td><span class="db-list-rat">11</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD008" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD008" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD008" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>21</td>
+                                <td><img
+                                        src="../images/products/64966rock-crawler-rechargeable-rc-4wd-rally-car-1-18-scale-2-4ghzrock-original-imaffh8kywgprmbh.jpeg">Rock Crawler RC Monster Truck <span>10, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/directory-finder" class="db-list-ststus" target="_blank">Directory Finder</a></td>
+                                <td><span class="db-list-rat">6</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD007" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD007" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD007" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>22</td>
+                                <td><img
+                                        src="../images/products/73768bq3204-002-7-nike-black-white-anthracite-original-imafh2hv38ygyyfy.jpeg">REVOLUTION 5 Running Shoe For Men  (Red) <span>10, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/directory-finder" class="db-list-ststus" target="_blank">Directory Finder</a></td>
+                                <td><span class="db-list-rat">1</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD006" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD006" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD006" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>23</td>
+                                <td><img
+                                        src="../images/products/5382d5600-nikon-d5600-original-imaezvbrhkgzyywz.jpeg">Nikon D5600 DSLR Camera Body <span>08, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/claude-d-dial" class="db-list-ststus" target="_blank">Claude D Dial</a></td>
+                                <td><span class="db-list-rat">7</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD005" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD005" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD005" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
+                                                        <tr>
+                                <td>24</td>
+                                <td><img
+                                        src="../images/products/40471bridge-in-the-forest-5969.jpg">VU Pixelight Ultra UHD TV <span>08, Apr 2020</span></td>
+<!--                                <td>--><!--</td>-->
+                                <td><a href="http://localhost/directory/bizbook/profile/claude-d-dial" class="db-list-ststus" target="_blank">Claude D Dial</a></td>
+                                <td><span class="db-list-rat">7</span></td>
+                                <td><a href="admin-edit-product.html?code=PROD004" class="db-list-edit">Edit</a></td>
+                                <td><a href="admin-delete-product.html?code=PROD004" class="db-list-edit">Delete</a></td>
+                                <td><a href="../product-details.html?code=PROD004" class="db-list-edit" target="_blank">Preview</a></td>
+                            </tr>
                             
-                    </ul>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
 
+            </div>
+            <div class="ad-pgnat">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
-
-<!-- END -->
-
 <!-- END -->
 
 <!-- Optional JavaScript -->
@@ -931,8 +1113,7 @@
 <script src="../js/popper.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/jquery-ui.js"></script>
-<script src="js/admin-custom.js"></script>
-<script src="http://harvesthq.github.io/chosen/chosen.jquery.js"></script>
+<script src="js/admin-custom.js"></script> <script src="http://harvesthq.github.io/chosen/chosen.jquery.js"></script>
 </body>
 
 </html>

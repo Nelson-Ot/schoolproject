@@ -18,16 +18,21 @@ include 'includes/header.php';
         $password1 = stripslashes($_REQUEST['upassword']);
         $password1 = mysqli_real_escape_string($conn,$password1);
          //Checking is user existing in the database or not
-        $query2 = "SELECT * FROM `users` WHERE uname='$username1'
-        and upassword='".md5($password1)."' ";
+        // $query2 = "SELECT * FROM `users` WHERE uname='$username1'
+        // and upassword='".md5($password1)."' ";
+         $query2 = "SELECT * FROM `users` WHERE uname='$username1'
+         and upassword='$password1' ";
         $result = mysqli_query($conn,$query2) ;
         $rows = mysqli_num_rows($result);
         if($rows==1){
             $_SESSION['username'] = $username1;
-            $_SESSION['email'] = $email1;
+            $_SESSION['user_email'] = $email1;
             
             // Redirect user to index.php
-            header("Location:home.php");
+            echo "<script type=\"text/javascript\">
+            
+            window.location = \"dashboard/dashboard.php\"
+        </script>";
         }else{
             $name_error1 =  "Username or Password is incorrect";
             echo "<script type='text/javascript'> onload = function(){alert('$name_error1');}</script>";
@@ -136,9 +141,9 @@ include 'includes/header.php';
                                             </div>
                                             <div class="u-s-m-b-30">
 
-                                                <label class="gl-label" for="login-email">E-MAIL *</label>
+                                                <label class="gl-label" for="login-email">Username</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="login-email" placeholder="Enter E-mail" name="uname"></div>
+                                                <input class="input-text input-text--primary-style" type="text" id="login-email" placeholder="Enter your username" name="uname"></div>
                                             <div class="u-s-m-b-30">
 
                                                 <label class="gl-label" for="login-password">PASSWORD *</label>
@@ -148,7 +153,7 @@ include 'includes/header.php';
                                                 <div class="u-s-m-b-30">
 
                                                     <!-- <button class="btn btn--e-transparent-brand-b-2" type="submit" name="login" value="Login" >LOGIN</button> -->
-                                                    <input type="submit" value="login" class="btn btn--e-transparent-brand-b-2">
+                                                    <input type="submit" value="login" class="btn btn--e-transparent-brand-b-2" name="login">
 
                                                 </div>
                                                 <div class="u-s-m-b-30">

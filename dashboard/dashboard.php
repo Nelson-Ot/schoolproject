@@ -1,3 +1,17 @@
+<?php
+require('../connect.php');
+session_start();
+if (isset($_SESSION['username'])) {
+	$sql = ("select * from users where uname=".$_SESSION['username']."");
+	
+	
+
+	$results = $conn->query($sql);
+
+	if ( $results->num_rows > 0) {
+	while ($row = $results->fetch_assoc()) {
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -218,7 +232,7 @@
 									<div class="head-pro">
 										<img src="images/user/62736rn53themes.png" alt=""> <b>Profile by</b>
 										<br>
-										<h4>Rn53 Themes</h4>
+										<h4><?php echo $sels['first_name'];?></h4>
 										<a href="dashboard.html" class="fclick"></a>
 									</div>
 									<div class="db-menu">
@@ -355,7 +369,7 @@
 					<img src="images/user/62736rn53themes.png" alt="">
 					<h4>Rn53 Themes</h4>
 					<b>Join on 26, Mar 2021</b>
-					<a class="ud-lhs-view-pro" target="_blank" href="profile.html">My profile</a>
+					<a class="ud-lhs-view-pro" target="_blank" href="profile.php">My profile</a>
 				</div>
 				<div class="ud-lhs-s2">
 					<ul>
@@ -406,7 +420,7 @@
 				<div class="log-bor">&nbsp;</div> <span class="udb-inst">User Dashboard</span>
 				<div class="cd-cen-intr">
 					<div class="cd-cen-intr-inn">
-						<h2>Welcom back, <b>Rn53 Themes</b></h2>
+						<h2>Welcom back, <b><?php echo $row['Last_Name'];?></b></h2>
 						<p>Stay up to date reports in your  products reports here</p>
 					</div>
 				</div>
@@ -443,7 +457,7 @@
 									<img src="images/user/62736rn53themes.png" alt="">
 									<h4>Rn53 Themes</h4>
 									<p>Member since 26, Mar 2021</p>
-								</div> <a href="profile.html" class="fclick" target="_blank">&nbsp;</a>
+								</div> <a href="profile.php" class="fclick" target="_blank">&nbsp;</a>
 							</div>
 						</div>
 						<div class="pay-rhs">
@@ -454,9 +468,9 @@
 								<li><b>City : </b> Sydney</li>
 								<li><b>Email : </b> rn53themes@gmail.com</li>
 								<li class="pro">
-									<input type="text" value="profile.html" readonly>
+									<input type="text" value="profile.php" readonly>
 								</li>
-								<li class="pre"><a target="_blank" href="profile.html">View my profile page</a>
+								<li class="pre"><a target="_blank" href="profile.php">View my profile page</a>
 								</li>
 							</ul>
 						</div>
@@ -1057,7 +1071,7 @@
 	</section>
 	<!--END PRICING DETAILS-->
 	<!-- START -->
-	
+<?php } } } ?>	
 	<!-- END -->
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
