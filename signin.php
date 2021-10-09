@@ -1,65 +1,36 @@
 <?php
-require('connect.php');
-session_start();
+
 include 'includes/header.php';
 
-
+error_reporting(0);
+include("connect.php");
+if(isset($_POST['login']))
+{
+  $adminusername=$_POST['uname'];
+  $pass= $_POST['upassword'];
+$ret=mysqli_query($conn,"SELECT * FROM users WHERE uname='$adminusername' and upassword='$pass'");
+$num=mysqli_fetch_array($ret);
+if($num>0)
+{
+$extra="dashboard/dashboard.php";
+$_SESSION['login']=$_POST['uname'];
+$_SESSION['id']=$num['user_id'];
+$_SESSION['email']=$num['user_email'];
+echo "<script>window.location.href='".$extra."'</script>";
+exit();
+}
+else
+{
+$_SESSION['action1']="*Invalid username or password";
+$extra="index.php";
+echo "<script>window.location.href='".$extra."'</script>";
+exit();
+}
+}
     
-    error_reporting(0);
-                      
-    // If form submitted, insert values into the database.
-    if (isset($_POST['login'])){
-    // removes backslashes
-        $username1 = stripslashes($_REQUEST['uname']);
-        
-        //escapes special characters in a string
-        $username1 = mysqli_real_escape_string($conn,$username1);
-        
-        $password1 = stripslashes($_REQUEST['upassword']);
-        $password1 = mysqli_real_escape_string($conn,$password1);
-         //Checking is user existing in the database or not
-        // $query2 = "SELECT * FROM `users` WHERE uname='$username1'
-        // and upassword='".md5($password1)."' ";
-         $query2 = "SELECT * FROM `users` WHERE uname='$username1'
-         and upassword='$password1' ";
-        $result = mysqli_query($conn,$query2) ;
-        $rows = mysqli_num_rows($result);
-        if($rows==1){
-            $_SESSION['username'] = $username1;
-            $_SESSION['user_email'] = $email1;
-            
-            // Redirect user to index.php
-            echo "<script type=\"text/javascript\">
-            
-            window.location = \"dashboard/dashboard.php\"
-        </script>";
-        }else{
-            $name_error1 =  "Username or Password is incorrect";
-            echo "<script type='text/javascript'> onload = function(){alert('$name_error1');}</script>";
-        }
-    }
-?>
-<?php
-// session_start();
-// if(isset($_POST['login']))
-// {
-//     extract($_POST);
-//     include 'database.php';
-//     $sql=mysqli_query($conn,"SELECT * FROM users where Email='$email' and Password='md5($pass)'");
-//     $row  = mysqli_fetch_array($sql);
-//     if(is_array($row))
-//     {
-//         $_SESSION["ID"] = $row['ID'];
-//         $_SESSION["Email"]=$row['Email'];
-//         $_SESSION["First_Name"]=$row['First_Name'];
-//         $_SESSION["Last_Name"]=$row['Last_Name']; 
-//         header("Location: home.php"); 
-//     }
-//     else
-//     {
-//         echo "Invalid Email ID/Password";
-//     }
-// }
+    
+
+
 ?>
 
         <!--====== End - Main Header ======-->
@@ -122,7 +93,7 @@ include 'includes/header.php';
                                         <span class="gl-text u-s-m-b-30">By creating an account with our store, you will be able to move through the checkout process faster, store shipping addresses, view and track your orders in your account and more.</span>
                                         <div class="u-s-m-b-15">
 
-                                            <a class="l-f-o__create-link btn--e-transparent-brand-b-2" href="signup.html">CREATE AN ACCOUNT</a></div>
+                                            <a class="l-f-o__create-link btn--e-transparent-brand-b-2" href="signup.php">CREATE AN ACCOUNT</a></div>
                                         <h1 class="gl-h1">SIGNIN</h1>
 
                                         <span class="gl-text u-s-m-b-30">If you have an account with us, please log in.</span>

@@ -109,6 +109,14 @@ if (strlen($_SESSION['id'] == 0)) {
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>county</td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="text" name="county" class="form-control" placeholder="County" value="<?php echo $row['county'];?>">
+                                            </div>
+                                        </td>
+                                    </tr>
 
                                     <tr>
                                         <td>Profile picture</td>
@@ -134,9 +142,10 @@ if (strlen($_SESSION['id'] == 0)) {
                                     $email_id = mysqli_real_escape_string($conn, $_POST['email_id']);
                                     $u_number = mysqli_real_escape_string($conn, $_POST['u_number']);
                                     $password = mysqli_real_escape_string($conn, $_POST['password']);
-                                    $sql_e = mysqli_query($conn, "select id from admin where user_email='$email_id'");
+                                    $county = mysqli_real_escape_string($conn, $_POST['county']);
+                                    $sql_e = mysqli_query($conn, "select user_id from users where user_email='".$email_id."' ");
                                     $row_e = mysqli_num_rows($sql_e);
-                                    $sql_u = mysqli_query($conn, "select id from admin where uname='$u_name'");
+                                    $sql_u = mysqli_query($conn, "select user_id from users where uname='".$u_name."'");
                                     $row_u = mysqli_num_rows($sql_u);
                                     if ($row_e > 0) {
                                         echo "<script>alert('Email id already exist with another account. Please try with other email id');</script>";
@@ -189,7 +198,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                             $url = $uploadPath . "thump_" . $resizeFileName . "." . $fileExt;
                                            
 
-                                           $mysql = $conn->query("update users set first_name='" . $first_name . "',last_name='" . $l_name . "',uname='" . $u_name . "',user_email='" . $email_id . "',user_phone_number='" . $u_number . "',upassword='" .$password . "',profilepic='" . $url . "' where user_id='" . $_GET['edit'] . "' ");  
+                                           $mysql = $conn->query("update users set first_name='" . $first_name . "',last_name='" . $l_name . "',uname='" . $u_name . "',user_email='" . $email_id . "',user_phone_number='" . $u_number . "',upassword='" .$password . "',county='".$county."'profilepic='" . $url . "' where user_id='" . $_GET['edit'] . "' ");  
                                             if ($mysql){
                                                 $extra = "admin-all-users.php";
                                                 echo "<script>window.location.href='" . $extra . "'</script>";
@@ -200,7 +209,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                            
                                         }
                                     }
-                                    $conn->query("update users set first_name='" . $first_name . "',last_name='" . $l_name . "',uname='" . $u_name . "',user_email='" . $email_id . "',user_phone_number='" . $u_number . "',upassword='" .$password . "' where user_id='" . $_GET['edit'] . "' ");  
+                                    $conn->query("update users set first_name='" . $first_name . "',last_name='" . $l_name . "',uname='" . $u_name . "',user_email='" . $email_id . "',user_phone_number='" . $u_number . "',county='".$county."',upassword='" .$password . "' where user_id='" . $_GET['edit'] . "' ");  
     
                                     $extra = "admin-all-users.php";
                                     echo "<script>window.location.href='" . $extra . "'</script>";

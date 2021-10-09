@@ -103,6 +103,14 @@ if (strlen($_SESSION['id'] == 0)) {
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>county</td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="text" name="county" class="form-control" placeholder="county">
+                                            </div>
+                                        </td>
+                                    </tr>
 
                                     <tr>
                                         <td>Profile picture</td>
@@ -112,6 +120,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                             </div>
                                         </td>
                                     </tr>
+                                    
 
                                     <tr>
                                         <td>
@@ -128,6 +137,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                     $email_id = mysqli_real_escape_string($conn, $_POST['email_id']);
                                     $u_number = mysqli_real_escape_string($conn, $_POST['u_number']);
                                     $password = mysqli_real_escape_string($conn, $_POST['password']);
+                                    $county = mysqli_real_escape_string($conn, $_POST['county']);
                                     $fileName = $_FILES['f_up']['tmp_name'];
                                     $sourceProperties = getimagesize($fileName);
                                     $resizeFileName = time();
@@ -178,7 +188,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                         echo "<script>alert('username id already exist with another account. Please try with other email id');</script>";
                                     } else {
                                         $url = $uploadPath . "thump_" . $resizeFileName . "." . $fileExt;
-                                        $conn->query("insert into users(`first_name`,`last_name`,`uname`,`user_email`,`user_phone_number`,`upassword`,`profpic`)values('" . $first_name . "','" . $l_name . "','" . $u_name . "','" . $email_id . "','" . $u_number . "','" . $password . "','" . $url . "')");
+                                        $conn->query("insert into users(`first_name`,`last_name`,`uname`,`user_email`,`user_phone_number`,`upassword`,`county`,`profpic`)values('" . $first_name . "','" . $l_name . "','" . $u_name . "','" . $email_id . "','" . $u_number . "','" . $password . "','".$county."','" . $url . "')");
 
                                         $extra = "admin-all-users.php";
                                         echo "<script>window.location.href='" . $extra . "'</script>";

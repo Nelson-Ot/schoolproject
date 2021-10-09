@@ -5,36 +5,7 @@ include 'includes/header.php';
 
      include ("connect.php");
     
-    //  $fname = $_POST['fname'];
-    //  $lname = $_POST['lname'];
-    //  $uname = $_POST['uname'];
-    //  $email = $_POST['email'];
-    //  $number = $_POST['number'];
-    //  $password = $_POST['password'];
-        
-    //  $sql_u = "SELECT * FROM users WHERE uname='$uname'";
-    //  $sql_e = "SELECT * FROM users WHERE user_email='$email'";
-    //  $res_u = mysqli_query($conn, $sql_u);
-    //  $res_e = mysqli_query($conn, $sql_e);
-    //  if (mysqli_num_rows($res_u) > 0) {
-    //     $name_error = "Sorry... username already taken";
-    //     echo "<script type='text/javascript'> onload = function(){alert('$name_error');
-    //     }</script>";
-    // }else if(mysqli_num_rows($res_e) > 0){
-    //     $email_error = "Sorry... email already taken"; 	
-    //     echo "<script type='text/javascript'> onload = function(){alert('$email_error');
-    //         }</script>";  	
-    // }else{
-    //         $query="INSERT INTO users (first_name,last_name,uname,user_email,user_phone_number,upassword) VALUES ('$fname','$lname','$uname','$email','$number','".md5($password)."')";
-    //        $data= mysqli_query($conn,$query);
-    //        if($data){ 
-
-    //         echo "<script type=\"text/javascript\">
-    //              alert(\"New member added successfully.\");
-    //              window.location = \"signin.php\"
-    //          </script>";
-    //         }
-    //     }
+    
 
 
 

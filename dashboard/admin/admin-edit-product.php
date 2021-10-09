@@ -68,7 +68,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
 
-                                                                    <select name="user_code" id="user_code" class="form-control" >
+                                                                    <select name="user_code" id="user_code" class="form-control">
                                                                         <?php
                                                                         $u = mysqli_fetch_assoc(mysqli_query($conn, "select * from users where user_id=" . $prodetails['ucode'] . ""));
                                                                         ?>
@@ -90,7 +90,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="product_name" id="product_name"  class="form-control" value="<?php echo $prodetails['pname']; ?>">
+                                                                    <input type="text" name="product_name" id="product_name" class="form-control" value="<?php echo $prodetails['pname']; ?>">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -159,7 +159,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <textarea class="form-control"  name="product_description" id="product_description"><?php echo $prodetails['pdesc']; ?></textarea>
+                                                                    <textarea class="form-control" name="product_description" id="product_description"><?php echo $prodetails['pdesc']; ?></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -169,7 +169,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label>Product image</label>
-                                                                    <input type="file" name="pimg"  class="form-control">
+                                                                    <input type="file" name="pimg" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -188,7 +188,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label>Product images(max 5 images)</label>
-                                                                    <input type="file" name="prel[]"  class="form-control" accept="image/png, image/jpeg" multiple>
+                                                                    <input type="file" name="prel[]" class="form-control" accept="image/png, image/jpeg" multiple>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -294,13 +294,13 @@ if (strlen($_SESSION['id'] == 0)) {
                                             $data = $conn->query("select * from products where id=" . $_GET['edit'] . "")->fetch_assoc();
                                             $ucode = $_POST['user_code'];
 
-                                $pname = mysqli_real_escape_string($conn, $_POST['product_name']);
+                                            $pname = mysqli_real_escape_string($conn, $_POST['product_name']);
 
-                                $catname = $_POST['category_id'];
-                                $subcatname = $_POST['sub_category'];
-                                $pprice =  $_POST['product_price'];
-                                $discount = $_POST['discount_percentage'];
-                                $pdesc = mysqli_real_escape_string($conn, $_POST['product_description']);
+                                            $catname = $_POST['category_id'];
+                                            $subcatname = $_POST['sub_category'];
+                                            $pprice =  $_POST['product_price'];
+                                            $discount = $_POST['discount_percentage'];
+                                            $pdesc = mysqli_real_escape_string($conn, $_POST['product_description']);
 
                                             if ($_FILES["pimg"]["name"] == '') {
                                                 $pimg = $data['pimg'];
@@ -309,8 +309,8 @@ if (strlen($_SESSION['id'] == 0)) {
                                                 echo $_FILES['pimg']['name'];
                                                 $sourceProperties = getimagesize($fileName);
                                                 $resizeFileName = uniqid() . time();
-                                $uploadPath = "images/products/";
-                                                
+                                                $uploadPath = "images/products/";
+
                                                 $fileExt = pathinfo($_FILES['pimg']['name'], PATHINFO_EXTENSION);
                                                 $uploadImageType = $sourceProperties[2];
                                                 $sourceImageWidth = $sourceProperties[0];
@@ -376,31 +376,29 @@ if (strlen($_SESSION['id'] == 0)) {
                                             }
 
 
-                                          $sql =   $conn->query("update products set ucode=" . $ucode . ",pname='" . $pname . "',catnameid=".$catname.",subcatname=" . $subcatname . ",pprice='" . $pprice . "',discount=" . $discount . ",pdesc='" . $pdesc . "',pimg='" . $pimg . "',prel='" . $related . "',product_info_question='" . $product_info_question ."',product_info_answer='" . $product_info_answer ."' where id=" . $_GET['edit'] . "");
+                                            $sql =   $conn->query("update products set ucode=" . $ucode . ",pname='" . $pname . "',catnameid=" . $catname . ",subcatname=" . $subcatname . ",pprice='" . $pprice . "',discount=" . $discount . ",pdesc='" . $pdesc . "',pimg='" . $pimg . "',prel='" . $related . "',product_info_question='" . $product_info_question . "',product_info_answer='" . $product_info_answer . "' where id=" . $_GET['edit'] . "");
 
-                                           if($sql){
-                                            $extra = "admin-all-products.php";
+                                            if ($sql) {
+                                                $extra = "admin-all-products.php";
 
-                                            echo "<script>
+                                                echo "<script>
                                             alert('edited succesfully');
                                             
                                             window.location.href='" . $extra . "'
                                             </script>";
-                                            exit();
-                                                
-
-                                           }else{
-                                               echo "<script>
+                                                exit();
+                                            } else {
+                                                echo "<script>
                                                alert('something went wrong);";
-                                           }
+                                            }
 
 
-                                         
+
 
 
                                         ?>
-                                            
-                                              
+
+
                                         <?php
 
                                         }
@@ -427,7 +425,7 @@ if (strlen($_SESSION['id'] == 0)) {
     <script src="../js/select-opt.js"></script>
     <script src="js/admin-custom.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
-    
+
     </body>
 
     </html>
