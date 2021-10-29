@@ -102,7 +102,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                             $changeDate = date("j F, Y", strtotime($currDate));
                                             echo  $changeDate;
                                             ?></td>
-                                        <td><span class="db-list-ststus" data-toggle="tooltip" title="Total listings in this category">0</span></td>
+                                        <td><span class="db-list-ststus" data-toggle="tooltip" title="Total number of products"><?php echo $conn->query("select * from products where subcatname =".$row['subcatid']."")->num_rows;?></span></td>
                                         <td><a href="admin-product-sub-category-edit.php?edit=<?php echo $row['subcatid'];?>" class="db-list-edit">Edit</a></td>
                                         <td><a href="admin-all-product-sub-category.php?delete=<?php echo $row['subcatid']; ?>" class="db-list-edit">Delete</a></td>
                                     </tr>

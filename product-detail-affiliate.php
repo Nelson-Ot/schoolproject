@@ -213,6 +213,22 @@ include 'includes/header.php';
                                             ?>
 
                                         </div>
+                                        <div class="u-s-m-b-15">
+
+                                            <a href="" class="btn btn--e-brand-b-2" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                                                enquire about product
+
+                                            </a>
+
+                                            <?php
+                                            //                                                  $phone = "09350943256";
+                                            // $result = substr($phone, 0, 4);
+                                            // $result .= "****";
+                                            // $result .= substr($phone, 7, 4);
+                                            // echo $result;
+                                            ?>
+
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -326,292 +342,229 @@ include 'includes/header.php';
                             <!--====== Tab 3 ======-->
                             <div class="tab-pane" id="pd-rev">
                                 <div class="pd-tab__rev">
-                                    <div class="u-s-m-b-30">
-                                        <div class="pd-tab__rev-score">
-                                            <div class="u-s-m-b-8">
-                                                <h2>23 Reviews - 4.6 (Overall)</h2>
-                                            </div>
-                                            <div class="gl-rating-style-2 u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                                            <div class="u-s-m-b-8">
-                                                <h4>We want to hear from you!</h4>
-                                            </div>
+                                   
 
-                                            <span class="gl-text">Tell us what you think about this item</span>
+
+                                        <div class="u-s-m-b-30">
+                                            <div class="pd-tab__rev-score">
+                                                <div class="u-s-m-b-8">
+                                                    <h2>23 Reviews - 4.6 (Overall)</h2>
+                                                </div>
+                                                <div class="gl-rating-style-2 u-s-m-b-8">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                </div>
+                                                <div class="u-s-m-b-8">
+                                                    <h4>We want to hear from you!</h4>
+                                                </div>
+
+                                                <span class="gl-text">Tell us what you think about this item</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="u-s-m-b-30">
-                                        <form class="pd-tab__rev-f1">
-                                            <div class="rev-f1__group">
-                                                <div class="u-s-m-b-15">
-                                                    <h2>23 Review(s) for Man Ruched Floral Applique Tee</h2>
-                                                </div>
-                                                <div class="u-s-m-b-15">
 
-                                                    <label for="sort-review"></label><select class="select-box select-box--primary-style" id="sort-review">
-                                                        <option selected>Sort by: Best Rating</option>
-                                                        <option>Sort by: Worst Rating</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="rev-f1__review">
-                                                <div class="review-o u-s-m-b-15">
-                                                    <div class="review-o__info u-s-m-b-8">
+                                        <div class="u-s-m-b-30">
 
-                                                        <span class="review-o__name">John Doe</span>
-
-                                                        <span class="review-o__date">27 Feb 2018 10:57:43</span>
+                                            <form class="pd-tab__rev-f1">
+                                                <div class="rev-f1__group">
+                                                    <div class="u-s-m-b-15">
+                                                        <h2>23 Review(s) for Man Ruched Floral Applique</h2>
                                                     </div>
-                                                    <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                    <div class="u-s-m-b-15">
 
-                                                        <span>(4)</span>
+                                                        <label for="sort-review"></label><select class="select-box select-box--primary-style" id="sort-review">
+                                                            <option selected>Sort by: Best Rating</option>
+                                                            <option>Sort by: Worst Rating</option>
+                                                        </select>
                                                     </div>
-                                                    <p class="review-o__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                                 </div>
-                                                <div class="review-o u-s-m-b-15">
-                                                    <div class="review-o__info u-s-m-b-8">
+                                                <div class="rev-f1__review">
+                                                <?php
+                                    $usr = mysqli_query($conn, "select * from reviews where seller_id = " . $selk['ucode'] . " ");
+                                    while ($res = mysqli_fetch_assoc($usr)) {
+                                    ?>
+                                                    <div class="review-o u-s-m-b-15">
+                                                        <div class="review-o__info u-s-m-b-8">
 
-                                                        <span class="review-o__name">John Doe</span>
+                                                            <span class="review-o__name"><?php echo $res['name']; ?></span>
 
-                                                        <span class="review-o__date">27 Feb 2018 10:57:43</span>
+                                                            <span class="review-o__date">
+                                                                <?php
+                                                                $currDate = $res['crt_date'];
+                                                                $changeDate = date("j F, Y", strtotime($currDate));
+                                                                echo  $changeDate;
+                                                                ?>
+                                                            </span>
+                                                        </div>
+                                                        <div class="review-o__rating gl-rating-style u-s-m-b-8">
+                                                            <?php
+                                                            $rrating = $res['rating'];
+                                                            for ($i = 1; $i <= $rrating; $i++) {
+                                                            ?>
+                                                                <i class="fas fa-star"></i>
+
+                                                            <?php
+                                                            }
+                                                            ?>
+
+
+                                                        </div>
+                                                        <p class="review-o__text"><?php echo $res['review']; ?></p>.</p>
                                                     </div>
-                                                    <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                <?php } ?>
 
-                                                        <span>(4)</span>
-                                                    </div>
-                                                    <p class="review-o__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
                                                 </div>
-                                                <div class="review-o u-s-m-b-15">
-                                                    <div class="review-o__info u-s-m-b-8">
+                                            </form>
+                                        </div>
 
-                                                        <span class="review-o__name">John Doe</span>
+                                        <div class="u-s-m-b-30">
+                                            <form class="pd-tab__rev-f2" action="rev.php" method="POST" enctype="multipart/form-data">
+                                                <h2 class="u-s-m-b-15">Add a Review</h2>
 
-                                                        <span class="review-o__date">27 Feb 2018 10:57:43</span>
+                                                <span class="gl-text u-s-m-b-15">Your email address will not be published. Required fields are marked *</span>
+                                                <div class="u-s-m-b-30">
+                                                    <div class="rev-f2__table-wrap gl-scroll">
+                                                        <table class="rev-f2__table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>
+                                                                        <div class="gl-rating-style-2"><i class="fas fa-star"></i>
+
+                                                                            <span>(1)</span>
+                                                                        </div>
+                                                                    </th>
+
+                                                                    <th>
+                                                                        <div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i>
+
+                                                                            <span>(2)</span>
+                                                                        </div>
+                                                                    </th>
+
+                                                                    <th>
+                                                                        <div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+
+                                                                            <span>(3)</span>
+                                                                        </div>
+                                                                    </th>
+
+                                                                    <th>
+                                                                        <div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+
+                                                                            <span>(4)</span>
+                                                                        </div>
+                                                                    </th>
+
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+
+                                                                        <!--====== Radio Box ======-->
+                                                                        <div class="radio-box">
+
+                                                                            <input type="radio" id="star-1" name="rating" value="1" />
+                                                                            <div class="radio-box__state radio-box__state--primary">
+
+                                                                                <label class="radio-box__label" for="star-1"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--====== End - Radio Box ======-->
+                                                                    </td>
+
+                                                                    <td>
+
+                                                                        <!--====== Radio Box ======-->
+                                                                        <div class="radio-box">
+
+                                                                            <input type="radio" id="star-2" name="rating" value="2">
+                                                                            <div class="radio-box__state radio-box__state--primary">
+
+                                                                                <label class="radio-box__label" for="star-2"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--====== End - Radio Box ======-->
+                                                                    </td>
+
+                                                                    <td>
+
+                                                                        <!--====== Radio Box ======-->
+                                                                        <div class="radio-box">
+
+                                                                            <input type="radio" id="star-3" name="rating" value="3">
+                                                                            <div class="radio-box__state radio-box__state--primary">
+
+                                                                                <label class="radio-box__label" for="star-3"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--====== End - Radio Box ======-->
+                                                                    </td>
+
+                                                                    <td>
+
+                                                                        <!--====== Radio Box ======-->
+                                                                        <div class="radio-box">
+
+                                                                            <input type="radio" id="star-4" name="rating" value="4">
+                                                                            <div class="radio-box__state radio-box__state--primary">
+
+                                                                                <label class="radio-box__label" for="star-4"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--====== End - Radio Box ======-->
+                                                                    </td>
+
+
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
-                                                    <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                </div>
+                                                <div class="rev-f2__group">
+                                                    <div class="u-s-m-b-15">
 
-                                                        <span>(4)</span>
+                                                        <label class="gl-label" for="reviewer-text">YOUR REVIEW *</label>
+                                                        <textarea class="text-area text-area--primary-style" id="reviewer-text" name="review"></textarea>
                                                     </div>
-                                                    <p class="review-o__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="u-s-m-b-30">
-                                        <form class="pd-tab__rev-f2">
-                                            <h2 class="u-s-m-b-15">Add a Review</h2>
+                                                    <div>
+                                                        <p class="u-s-m-b-30">
 
-                                            <span class="gl-text u-s-m-b-15">Your email address will not be published. Required fields are marked *</span>
-                                            <div class="u-s-m-b-30">
-                                                <div class="rev-f2__table-wrap gl-scroll">
-                                                    <table class="rev-f2__table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>
-                                                                    <div class="gl-rating-style-2"><i class="fas fa-star"></i>
+                                                            <label class="gl-label" for="reviewer-name">NAME *</label>
 
-                                                                        <span>(1)</span>
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                                            <input class="input-text input-text--primary-style" type="text" id="reviewer-name" name="reviewer-name" placeholder="">
+                                                        </p>
+                                                        <p class="u-s-m-b-30">
 
-                                                                        <span>(1.5)</span>
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                            <label class="gl-label" for="reviewer-email">EMAIL *</label>
 
-                                                                        <span>(2)</span>
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                                            <input class="input-text input-text--primary-style" type="text" id="reviewer-email" name="reviewer-email" placeholder="">
+                                                        </p>
+                                                        <p class="u-s-m-b-30">
 
-                                                                        <span>(2.5)</span>
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
 
-                                                                        <span>(3)</span>
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
 
-                                                                        <span>(3.5)</span>
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                            <input class="input-text input-text--primary-style" type="hidden" id="reviewer-email" name="prod" value="<?php echo $selk['pname']; ?>">
 
-                                                                        <span>(4)</span>
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
 
-                                                                        <span>(4.5)</span>
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <div class="gl-rating-style-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-
-                                                                        <span>(5)</span>
-                                                                    </div>
-                                                                </th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-
-                                                                    <!--====== Radio Box ======-->
-                                                                    <div class="radio-box">
-
-                                                                        <input type="radio" id="star-1" name="rating">
-                                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                                            <label class="radio-box__label" for="star-1"></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--====== End - Radio Box ======-->
-                                                                </td>
-                                                                <td>
-
-                                                                    <!--====== Radio Box ======-->
-                                                                    <div class="radio-box">
-
-                                                                        <input type="radio" id="star-1.5" name="rating">
-                                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                                            <label class="radio-box__label" for="star-1.5"></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--====== End - Radio Box ======-->
-                                                                </td>
-                                                                <td>
-
-                                                                    <!--====== Radio Box ======-->
-                                                                    <div class="radio-box">
-
-                                                                        <input type="radio" id="star-2" name="rating">
-                                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                                            <label class="radio-box__label" for="star-2"></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--====== End - Radio Box ======-->
-                                                                </td>
-                                                                <td>
-
-                                                                    <!--====== Radio Box ======-->
-                                                                    <div class="radio-box">
-
-                                                                        <input type="radio" id="star-2.5" name="rating">
-                                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                                            <label class="radio-box__label" for="star-2.5"></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--====== End - Radio Box ======-->
-                                                                </td>
-                                                                <td>
-
-                                                                    <!--====== Radio Box ======-->
-                                                                    <div class="radio-box">
-
-                                                                        <input type="radio" id="star-3" name="rating">
-                                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                                            <label class="radio-box__label" for="star-3"></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--====== End - Radio Box ======-->
-                                                                </td>
-                                                                <td>
-
-                                                                    <!--====== Radio Box ======-->
-                                                                    <div class="radio-box">
-
-                                                                        <input type="radio" id="star-3.5" name="rating">
-                                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                                            <label class="radio-box__label" for="star-3.5"></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--====== End - Radio Box ======-->
-                                                                </td>
-                                                                <td>
-
-                                                                    <!--====== Radio Box ======-->
-                                                                    <div class="radio-box">
-
-                                                                        <input type="radio" id="star-4" name="rating">
-                                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                                            <label class="radio-box__label" for="star-4"></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--====== End - Radio Box ======-->
-                                                                </td>
-                                                                <td>
-
-                                                                    <!--====== Radio Box ======-->
-                                                                    <div class="radio-box">
-
-                                                                        <input type="radio" id="star-4.5" name="rating">
-                                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                                            <label class="radio-box__label" for="star-4.5"></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--====== End - Radio Box ======-->
-                                                                </td>
-                                                                <td>
-
-                                                                    <!--====== Radio Box ======-->
-                                                                    <div class="radio-box">
-
-                                                                        <input type="radio" id="star-5" name="rating">
-                                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                                            <label class="radio-box__label" for="star-5"></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--====== End - Radio Box ======-->
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="rev-f2__group">
-                                                <div class="u-s-m-b-15">
-
-                                                    <label class="gl-label" for="reviewer-text">YOUR REVIEW *</label><textarea class="text-area text-area--primary-style" id="reviewer-text"></textarea>
+                                                        </p>
+                                                        <p class="u-s-m-b-30">
+                                                            <input type="hidden" class="s-option__link btn--e-white-brand-shadow" id="recipient-name" name="sellerscode" value="<?php $usr = $conn->query("select * from users where user_id=" . $selk['ucode'] . "")->fetch_assoc();
+                                                                                                                                                                                echo $usr['user_id']; ?>">
+                                                        </p>
+                                                    </div>
                                                 </div>
                                                 <div>
-                                                    <p class="u-s-m-b-30">
 
-                                                        <label class="gl-label" for="reviewer-name">NAME *</label>
-
-                                                        <input class="input-text input-text--primary-style" type="text" id="reviewer-name">
-                                                    </p>
-                                                    <p class="u-s-m-b-30">
-
-                                                        <label class="gl-label" for="reviewer-email">EMAIL *</label>
-
-                                                        <input class="input-text input-text--primary-style" type="text" id="reviewer-email">
-                                                    </p>
+                                                    <button class="btn btn--e-brand-shadow" type="submit" name="review">SUBMIT</button>
                                                 </div>
-                                            </div>
-                                            <div>
+                                            </form>
+                                        </div>
 
-                                                <button class="btn btn--e-brand-shadow" type="submit">SUBMIT</button>
-                                            </div>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
                             <!--====== End - Tab 3 ======-->
@@ -623,7 +576,7 @@ include 'includes/header.php';
 </div>
 <!--====== End - Product Detail Tab ======-->
 <?php
-        $categories = mysqli_query($conn, "select * from product_category where cat_id= " . $selk['catnameid'] . " ");
+        $categories = mysqli_query($conn, "select * from product_category where cat_id = " . $selk['catnameid'] . " ");
 
 
 
@@ -693,35 +646,35 @@ include 'includes/header.php';
                                     </div>
 
                                     <span class="product-o__category">
-                                    <a href=""><?php $usr = $conn->query("select * from users where user_id=" . $selk['ucode'] . "")->fetch_assoc();
-                                                            echo $usr['uname']; ?></a></span>
+                                        <a href=""><?php $usr = $conn->query("select * from users where user_id=" . $selk['ucode'] . "")->fetch_assoc();
+                                                    echo $usr['uname']; ?></a></span>
 
 
 
-                                        <span class="product-o__name">
+                                    <span class="product-o__name">
 
-                                            <a href="product-detail-affiliate.php?prod=<?php echo $res['id']; ?>"><?php echo $res['pname']; ?></a></span>
-                                        <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        <a href="product-detail-affiliate.php?prod=<?php echo $res['id']; ?>"><?php echo $res['pname']; ?></a></span>
+                                    <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
 
-                                            <span class="product-o__review">(20)</span>
-                                        </div>
-                                        <span class="product-o__price">Ksh <?php echo $res['pprice']; ?>
+                                        <span class="product-o__review">(20)</span>
+                                    </div>
+                                    <span class="product-o__price">Ksh <?php echo $res['pprice']; ?>
 
-                                            <span class="product-o__discount">Ksh
+                                        <span class="product-o__discount">Ksh
 
-                                                <?php if ($res['discount'] == 0) {
-                                                    echo "00";
-                                                } else {
-                                                    $tp = $res['pprice'];
-                                                    $dis = 100 - $res['discount'];
-                                                    $total = 100 * ($tp / $dis);
+                                            <?php if ($res['discount'] == 0) {
+                                                echo "00";
+                                            } else {
+                                                $tp = $res['pprice'];
+                                                $dis = 100 - $res['discount'];
+                                                $total = 100 * ($tp / $dis);
 
-                                                    $p = round($total, 0);
+                                                $p = round($total, 0);
 
-                                                    echo $p;
-                                                }
-                                                ?>
-                                            </span></span>
+                                                echo $p;
+                                            }
+                                            ?>
+                                        </span></span>
                                 </div>
                             </div>
                         <?php } ?>
@@ -965,7 +918,6 @@ include 'includes/header.php';
 <!--====== End - Section 1 ======-->
 </div>
 <!--====== End - App Content ======-->
-<?php } ?>
 
 
 <!--====== Main Footer ======-->
@@ -1406,7 +1358,7 @@ include 'includes/header.php';
 
                                 <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE SHOPPING</a>
 
-                                <a class="s-option__link btn--e-white-brand-shadow" href="cart.html">VIEW CART</a>
+                                <a class="s-option__link btn--e-white-brand-shadow" href="cart.php">VIEW CART</a>
 
                                 <a class="s-option__link btn--e-brand-shadow" href="checkout.html">PROCEED TO CHECKOUT</a>
                             </div>
@@ -1418,6 +1370,58 @@ include 'includes/header.php';
     </div>
 </div>
 <!--====== End - Add to Cart Modal ======-->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="enqsub.php" enctype="multipart/form-data">
+                    <div class="form-group">
+
+                        <input type="hidden" class="s-option__link btn--e-white-brand-shadow" id="recipient-name" name="sname" value="<?php $usr = $conn->query("select * from users where user_id=" . $selk['ucode'] . "")->fetch_assoc();
+                                                                                                                                        echo $usr['user_id']; ?>">
+                    </div>
+                    <div class="form-group">
+
+                        <input type="hidden" class="s-option__link btn--e-white-brand-shadow" id="recipient-name" name="prod_id" value="<?php echo $selk['id']; ?>">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Name</label>
+                        <input type="text" class="s-option__link btn--e-white-brand-shadow" id="recipient-name" required name="enqname">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Email</label>
+                        <input type="email" class="s-option__link btn--e-white-brand-shadow" id="recipient-name" required name="enqmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">phone number</label>
+                        <input type="tel" class="s-option__link btn--e-white-brand-shadow" id="recipient-name" required placeholder="0799-097-488" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="">Message:</label>
+                        <textarea class="s-option__link btn--e-white-brand-shadow" id="message-text" required name="message"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn--e-brand-b-2" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn--e-brand-b-2" name="enq">Send message</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<?php } ?>
+
 <!--====== End - Modal Section ======-->
 </div>
 <!--====== End - Main App ======-->

@@ -336,21 +336,21 @@ if (strlen($_SESSION['id'] == 0)) {
                                 $sql =  $conn->query("insert into products(`ucode`,`pname`,`catnameid`,`subcatname`,`pprice`,`discount`,`pdesc`,`pimg`,`prel`,`product_info_question`,`product_info_answer`)values(" . $ucode . ",'" . $pname . "'," . $catname . ",'" . $subcatname . "','" . $pprice . "'," . $discount . ",'" . $pdesc . "','" . $url . "','" . $related . "','" . $product_info_question . "','" . $product_info_answer . "')");
 
                                 if ($sql) {
-                                ?>
-                                    <script type="text/javascript">
-                                        $(document).ready(function() {
-                                            toastr.options.timeOut = 4500; // 1.5s
-                                            toastr.info('Insert Product Successfully!!');
-
-                                        });
-                                    </script>
-                                <?php
+                                    $extra="admin-all-products.php";
+                                    echo "<script>window.location.href='".$extra."'</script>";
+                                    exit();
                                 } else {
                                     echo "<script>Alert('something went wrong');</script>";
                                 }
-
-
                                 ?>
+                                   
+                                
+                            
+                                    
+                              
+
+
+                                
 
                         <?php
 

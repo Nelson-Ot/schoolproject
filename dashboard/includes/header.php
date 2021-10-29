@@ -57,7 +57,7 @@
                                 <div class="pop-menu">
                                     <div class="container">
                                         <div class="row"> <i class="material-icons clopme">close</i>
-                                            
+
                                             <div class="pmenu-cat">
                                                 <h4>All Categories</h4>
                                                 <input type="text" id="pg-sear" placeholder="Search category">
@@ -94,14 +94,14 @@
                                     </div>
                                 </div>
                                 <!--END MOBILE MENU-->
-                                
+
                                 <div class="al">
                                     <div class="head-pro">
                                         <img src=" <?php
-                                    $ret = mysqli_query($conn, "select * from users where user_id='" . $_SESSION['id'] . "' ")->fetch_assoc();
-                                    
-                                    echo $ret['profpic'];
-                                    ?>" alt=""> <b>Profile by</b>
+                                                    $ret = mysqli_query($conn, "select * from users where user_id='" . $_SESSION['id'] . "' ")->fetch_assoc();
+
+                                                    echo $ret['profpic'];
+                                                    ?>" alt=""> <b>Profile by</b>
                                         <br>
                                         <h4><?php echo $_SESSION['login']; ?></h4>
                                         <a href="dashboard.php" class="fclick"></a>
@@ -114,7 +114,7 @@
                                                     <img src="images/icon/dbl3.png" alt="" />Add New Product</a>
                                             </li>
                                             <li>
-                                                <a href="db-enquiry.html">
+                                                <a href="db-enquiry.php">
                                                     <img src="images/icon/dbl14.png" alt="" />Lead enquiry</a>
                                             </li>
 
@@ -140,33 +140,39 @@
                                     <div class="mob-me-all">
                                         <div class="mob-me-clo"><i class="material-icons">close</i>
                                         </div>
-                                        <div class="mv-pro ud-lhs-s1">
-                                            <img src="images/user/62736rn53themes.png" alt="">
-                                            <h4>Rn53 Themes</h4>
-                                            <b>Join on 26, Mar 2021</b>
-                                        </div>
+                                        <?php
+                                        $usr = mysqli_query($conn, "select * from users where user_id = " . $_SESSION['id'] . " ");
+                                        while ($res = mysqli_fetch_assoc($usr)) {
+                                        ?>
+                                            <div class="mv-pro ud-lhs-s1">
+                                                <img src="<?php echo $res['profpic']; ?>" alt="">
+                                                <h4><?php echo $res['first_name']; ?> &nbsp;<?php echo $res['last_name']; ?></h4>
+                                                <b>Join on <?php
+                                                            $currDate = $res['crt_date'];
+                                                            $changeDate = date("j F, Y", strtotime($currDate));
+                                                            echo  $changeDate;
+                                                            ?></b>
+                                            </div>
+                                        <?php } ?>
                                         <div class="mv-pro-menu ud-lhs-s2">
                                             <ul>
                                                 <li>
-                                                    <a href="dashboard.html" class="db-lact">
+                                                    <a href="dashboard.php" class="db-lact">
                                                         <img src="images/icon/dbl1.png" alt="" />My Dashboard</a>
                                                 </li>
 
                                                 <li>
-                                                    <a href="db-enquiry.html" class="">
+                                                    <a href="db-enquiry.php" class="">
                                                         <img src="images/icon/tick.png" alt="" />Lead enquiry</a>
                                                 </li>
                                                 <li>
-                                                    <a href="db-products.html" class="">
-                                                        <img src="images/icon/cart.png" alt="" />All Products</a>
+                                                    <a href="db-review.php">
+                                                        <img src="images/icon/dbl13.png" alt="" />Reviews</a>
                                                 </li>
 
+
                                                 <li>
-                                                    <a href="db-message.html" class="">
-                                                        <img src="images/icon/dbl14.png" alt="" />Messages</a>
-                                                </li>
-                                                <li>
-                                                    <a href="db-my-profile.html" class="">
+                                                    <a href="db-my-profile.php" class="">
                                                         <img src="images/icon/dbl6.png" alt="" />My Profile</a>
                                                 </li>
 
@@ -188,37 +194,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="mv-cate">
-                                            <h4>All Categories</h4>
-                                            <ul>
-                                                <li> <a href="all-listing.html">Wedding halls</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Hotel & Food</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Pet shop</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Digital Products</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Spa and Facial</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Real Estate</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Sports</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Education</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Electricals</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Automobiles</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Transportation</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Hospitals</a>
-                                                </li>
-                                                <li> <a href="all-listing.html">Hotels And Resorts</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <!--END MOBILE MENU-->

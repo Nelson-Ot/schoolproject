@@ -54,7 +54,7 @@ if (strlen($_SESSION['id'] == 0)) {
 
 
 
-                                    $sql = "SELECT * FROM product_category WHERE cat_id = " . $_GET['edit'] . "";
+                                    $sql = "SELECT * FROM homepageimg WHERE id = " . $_GET['edit'] . "";
                                     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 
@@ -68,13 +68,7 @@ if (strlen($_SESSION['id'] == 0)) {
 
                                                 <ul>
                                                     <li>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <input type="text" class="form-control" id="category_name" name="category_name" value="<?php echo $row['cat_name']; ?>" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        
                                                         <!--FILED START-->
                                                         <div class="row">
                                                             <div class="col-md-12">
@@ -98,18 +92,7 @@ if (strlen($_SESSION['id'] == 0)) {
 
                                             <?php
                                             if (isset($_POST['up_cat'])) {
-                                                $cname = mysqli_real_escape_string($conn, $_POST['category_name']);
-                                            //     $category_name_exist_check = mysqli_query($conn, "SELECT * FROM product_category  WHERE cat_name !='" . $cname . "' ");
-
-                                            //     if (mysqli_num_rows($category_name_exist_check) > 0) {
-
-                                            //         $_SESSION['status_msg'];
-                                                    
-
-                                            //         $extra="admin-add-new-product-category.php";
-                                            // echo "<script>window.location.href='".$extra."'</script>";
-                                            // exit();
-                                            //     }
+                                              
 
 
                                                 if (!empty($_FILES["f_up"]["name"])) {
@@ -118,7 +101,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                                     $fileName = $_FILES['f_up']['tmp_name'];
                                                     $sourceProperties = getimagesize($fileName);
                                                     $resizeFileName = time();
-                                                    $uploadPath = "images/product-categories/";
+                                                    $uploadPath = "images/homepage/";
                                                     $fileExt = pathinfo($_FILES['f_up']['name'], PATHINFO_EXTENSION);
                                                     $uploadImageType = $sourceProperties[2];
                                                     $sourceImageWidth = $sourceProperties[0];
@@ -152,7 +135,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                                     }
 
                                                     $url = $uploadPath . "thump_" . $resizeFileName . "." . $fileExt;
-                                                   $sql =  $conn->query("update product_category set cat_name='" . $cname . "',cat_img='" . $url . "' where cat_id=" . $_GET['edit'] . "");
+                                                   $sql =  $conn->query("update homepageimg set img='" . $url . "' where id=" . $_GET['edit'] . "");
 
                                                    if($sql){
                                                     $extra="admin-all-product-category.php";
@@ -161,17 +144,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                                    }else{
                                                        echo "<script>window.location.href='admin-product-category-edit.php?error'</script>";
                                                    }
-                                                } else {
-                                                  $sql =   $conn->query("update product_category set cat_name='" . $cname . "' where cat_id=" . $_GET['edit'] . "");
-
-                                                  if($sql){
-                                                    $extra="admin-all-product-category.php";
-                                                    echo "<script>window.location.href='".$extra."'</script>";
-                                                    exit();
-                                                   }else{
-                                                       echo "<script>window.location.href='admin-product-category-edit.php?error'</script>";
-                                                   }
-                                                }
+                                                } 
                                             ?>
 
                                               

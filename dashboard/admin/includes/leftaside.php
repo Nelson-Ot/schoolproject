@@ -48,13 +48,12 @@
 				
 				
 				
-				<li class="ic-enq"> <a href="#" class="">Enquiry & Get Quote</a>
+				<li class="ic-enq"> <a href="#" class="">	Feedbacks</a>
 					<div>
 						<ol>
-							<li> <a href="admin-all-enquiry.html">All Enquiry</a>
+							<li> <a href="admin-all-feedbacks.php">All Feedbacks</a>
 							</li>
-							<li> <a href="admin-saved-enquiry.html">Saved Enquiry</a>
-							</li>
+							
 						</ol>
 					</div>
 				</li>
@@ -85,7 +84,7 @@
 						<ol>
 							<li> <a href="admin-home-top-section.html">Top Section</a>
 							</li>
-							<li> <a href="admin-home-category.html">Choose Category</a>
+							<li> <a href="admin-home-category.php">Awesome shopping deals</a>
 							</li>
 							<li> <a href="admin-trending-category.html">Choose Trending Category</a>
 							</li>

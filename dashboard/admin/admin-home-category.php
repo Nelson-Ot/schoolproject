@@ -6,16 +6,17 @@ if (strlen($_SESSION['id'] == 0)) {
     header('location:logout.php');
 } else {
 
+
+    include 'includes/header.php';
+
     // for deleting user
     if (isset($_GET['delete'])) {
         $adminid = $_GET['delete'];
-        $msg = mysqli_query($conn, "delete from product_category where cat_id='$adminid'");
+        $msg = mysqli_query($conn, "delete from users where user_id='$adminid'");
         if ($msg) {
             echo "<script>alert('Data deleted');</script>";
         }
     }
-
-    include 'includes/header.php';
 ?>
 
     <?php
@@ -52,30 +53,21 @@ if (strlen($_SESSION['id'] == 0)) {
             <div class="ad-dash leftpadd">
                 <div class="ud-cen">
                     <div class="log-bor">&nbsp;</div>
-                    <span class="udb-inst">Product Category</span>
+                    <span class="udb-inst">Home page category</span>
                     <div class="ud-cen-s2 hcat-cho">
-                        <h2>All Product Category</h2>
-                        <div class="ad-int-sear">
-                            <input type="text" id="pg-sear" placeholder="Search this page..">
-                        </div>
-                        <a href="admin-add-new-product-category.php" class="db-tit-btn">Add new product category</a>
-                        <table class="responsive-table bordered" id="pg-resu">
+                        <h2>Home page category</h2>
+                        <table class="responsive-table bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Category Name</th>
-                                    <th>Category Image</th>
-                                    <th>Created date</th>
-                                    <th>Product</th>
-                                    <th>Sub Cate</th>
+                                    
+                                    <th>Image</th>
                                     <th>Edit</th>
-                                    <th>View Sub Cate</th>
-                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
                             <?php
-                                $cat = mysqli_query($conn, "select * from product_category");
+                                $cat = mysqli_query($conn, "select * from homepageimg");
                                 $cnt = 1;
 
 
@@ -87,22 +79,16 @@ if (strlen($_SESSION['id'] == 0)) {
                                 ?>
                                 <tr>
                                     <td><?php echo $cnt ?></td>
-                                    <td><b class="db-list-rat"><?php echo $row['cat_name'];?></b></td>
-                                    <td><img src="<?php echo $row['cat_img'];?>" alt=""></td>
-                                    <td> <?php
-                                                            $currDate = $row['cat_cdt'];
-                                                            $changeDate = date("j F, Y", strtotime($currDate));
-                                                            echo  $changeDate;
-                                                            ?></td>
-                                    <td><span class="db-list-ststus" data-toggle="tooltip" title="Total products in this category"><?php echo $conn->query("select * from products where catnameid=".$row['cat_id']."")->num_rows;?></span></td>
-                                    <td><span class="db-list-ststus"><?php echo $conn->query("select * from sub_cat where cat_id=".$row['cat_id']."")->num_rows;?></span></td>
-                                    <td><a href="admin-product-category-edit.php?edit=<?php echo $row['cat_id'];?>" class="db-list-edit">Edit</a></td>
-                                    <td><a href="admin-all-product-sub-category.html?cat=23" class="db-list-edit">View</a></td>
-                                    <td><a href="admin-all-product-category.php?delete=<?php echo $row['cat_id'];?>" class="db-list-edit">Delete</a></td>
+                                   
+                                    <td>
+                                        <img src="<?php echo $row['img'];?>" alt="">
+                                    </td>
+                                    <td><a href="admin-homecategory-edit.php?edit=<?php echo $row['id'];?>" class="db-list-edit">Edit</a></td>
                                 </tr>
-                                <?php $cnt = $cnt + 1;
-                                } ?>
+                                <?php $cnt = $cnt +1; } ?>
                                
+
+
                             </tbody>
                         </table>
                     </div>

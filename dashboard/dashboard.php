@@ -117,10 +117,11 @@ if (strlen($_SESSION['id'] == 0)) {
 				<?php
 				$su = mysqli_query($conn, "select * from products where ucode = " . $_SESSION['id'] . " ");
 				while ($res = mysqli_fetch_assoc($su)) {
+					$cnt = 1;
 				?>
 					<tbody>
 						<tr>
-							<td>1</td>
+							<td><?php echo $cnt; ?></td>
 							<td>
 								<img src="<?php echo $res['pimg']; ?>"><?php echo $res['pname']; ?> <span>
 									<?php
@@ -142,7 +143,7 @@ if (strlen($_SESSION['id'] == 0)) {
 						</tr>
 
 					</tbody>
-				<?php } ?>
+				<?php  $cnt = $cnt + 1; } ?>
 			</table>
 
 
