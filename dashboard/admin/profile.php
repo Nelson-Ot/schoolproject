@@ -30,9 +30,13 @@ if (strlen($_SESSION['id']==0)) {
 						<li>
 							<div>
 								<img src="../images/icon/ic-1.png" alt="">
-								<h2></h2>
+								<h2>
+								<?php echo $conn->query("select * from users")->num_rows;?>
+
+								</h2>
 								<h4>All Users</h4>
-								<a href="admin-all-users.html" class="fclick"></a>
+								<a href="admin-all-users.php" class="fclick">
+								</a>
 							</div>
 						</li>
 						<li>
