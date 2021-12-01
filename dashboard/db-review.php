@@ -66,11 +66,7 @@ if (strlen($_SESSION['id'] == 0)) {
 								
 								<td>
 									<label class="rat"> 
-										<!-- <i class="material-icons">star</i>
-										 <i class="material-icons">star</i>
-										<i class="material-icons">star</i>
-										<i class="material-icons">star</i>
-										<i class="material-icons">star</i> --> 
+										
 										<?php
 									$rrating = $res['rating'];
                                         for ($i = 1; $i <= $rrating; $i++) {

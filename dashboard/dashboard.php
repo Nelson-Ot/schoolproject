@@ -37,15 +37,21 @@ if (strlen($_SESSION['id'] == 0)) {
 		<div class="ud-cen-s1">
 			<ul>
 				<li>
-					<div> <b>21</b>
+					<div> <b>
+					<?php echo $conn->query("select * from products where ucode = " . $_SESSION['id'] . "")->num_rows;?>
+
+					</b>
+					
 						<h4>All Products</h4>
-						<p>Total no of products</p> <a href="db-all-listing.html">&nbsp;</a>
+						<p>Total no of products</p> <a href="">&nbsp;</a>
 					</div>
 				</li>
 				<li>
-					<div> <b>13</b>
-						<h4>Enquiries</h4>
-						<p>Total no of enquiry</p> <a href="db-enquiry.html">&nbsp;</a>
+					<div> <b>
+					<?php echo $conn->query("select * from reviews where seller_id = " . $_SESSION['id'] . "")->num_rows;?>
+					</b>
+						<h4>reviews</h4>
+						<p>Total no of reviews</p> <a href="db-review.php">&nbsp;</a>
 					</div>
 				</li>
 				<li>
